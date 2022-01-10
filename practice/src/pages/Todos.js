@@ -29,7 +29,8 @@ const Todos = () => {
     } else {
       const myNewInputData = {
         id: new Date().getTime().toString(),
-        name: inputdata, prioritydata
+        name: inputdata,
+        prioritydata,
       };
       setItems([...items, myNewInputData]);
       setItempriority([...itemmpriority, prioritydata]);
@@ -42,35 +43,22 @@ const Todos = () => {
     localStorage.setItem("mytodolist", JSON.stringify(items));
   }, [items]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("my", JSON.stringify(prioritydata));
-  // }, [items]);
-
-  //  const deleteItem = (index) => {
-  //    const updatedItems = items.filter((curElem) => {
-  //      return curElem.id !== index;
-  //    });
-  //    setItems(updatedItems);
-  //  }
-
   const editItem = (index) => {
     const item_todo_edited = items.find((curElem) => {
       return curElem.id === index;
-    })
+    });
     setInputdata(item_todo_edited.name);
   };
 
   const deleteItem = (index) => {
     const updatedItem = items.filter((curElem) => {
       return curElem.id !== index;
-    })
-    setItems(updatedItem)
+    });
+    setItems(updatedItem);
   };
 
   const removeAll = () => {
-    localStorage.removeItem("mytodolist")
-    // localStorage.clear();
-    // window.location.reload();
+    localStorage.removeItem("mytodolist");
   };
 
   return (
@@ -94,7 +82,8 @@ const Todos = () => {
             id="priority"
             value={prioritydata}
             onChange={(event) => setPrioritydata(event.target.value)}
-          >
+          > 
+            <option value="">Select</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
@@ -118,50 +107,51 @@ const Todos = () => {
         <hr />
 
         <div className="showItems">
-          {items.filter((curElem) => {
-            if(searchTerm == ""){
-              return curElem
-            } else if(curElem.name.includes(searchTerm)) {
-              console.log(curElem.name)
-              return curElem
-            }
-          }).map((curElem, indx) => {
-            return (
-              <>
-                <div className="eachItem" key={curElem.id}>
-                  <img src={icon} alt="todo" />
-                  <h5>
-                    {curElem.name}
+          {items
+            .filter((curElem) => {
+              if (searchTerm == "") {
+                return curElem;
+              } else if (curElem.name.includes(searchTerm)) {
+                console.log(curElem.name);
+                return curElem;
+              }
+            })
+            .map((curElem, indx) => {
+              return (
+                <>
+                  <div className="eachItem" key={curElem.id}>
+                    <img src={icon} alt="todo" />
+                    <h5>
+                      {curElem.name}
 
-                    <small>{curElem.prioritydata}</small>
-                  </h5>
-                  <div className="icons">
-                    <i class="far fa-edit"></i>
-                    <i
-                      class="far fa-trash-alt"
-                      onClick={() => deleteItem(curElem.id)}></i>
+                      <small>{curElem.prioritydata}</small>
+                    </h5>
+                    <div className="icons">
+                      <i class="far fa-edit"
+                      onClick={() => editItem(curElem.id)}></i>
+                      <i
+                        class="far fa-trash-alt"
+                        onClick={() => deleteItem(curElem.id)}
+                      ></i>
+                    </div>
                   </div>
-                </div>
-              </>
-            );
-          })}
+                </>
+              );
+            })}
 
           <br />
         </div>
 
         <input
-            type="text"
-            placeholder="Search Here"
-            id="search_input"
-            onChange={(event) => setSearchTerm(event.target.value)}
-          />
-        
-       
+          type="text"
+          placeholder="Search Here"
+          id="search_input"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
 
         <button className="removeall" onClick={removeAll}>
           Clear List
         </button>
-        
       </div>
     </>
   );

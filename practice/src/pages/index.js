@@ -7,7 +7,8 @@ return (
 	<>
 	<div className="home_main">
 		<div className="content">
-		Welcome to TODOS app
+		Welcome to TODOS app<br/>
+		Click on TODOS in navbar to start
 		</div>
 	</div>
 	</>
