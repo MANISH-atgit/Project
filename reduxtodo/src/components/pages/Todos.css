@@ -1,0 +1,180 @@
+body {
+  background-color: #eeeeee;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Todos_main {
+  /* border: 1px solid red; */
+  background-color: #fff;
+  width: 40%;
+  margin-top: -8px;
+  margin-left: 420px;
+  box-shadow: 1px 1px 0px 0 #cccccc;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 3px;
+  height: 585px;
+}
+
+.child_div {
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 0.9em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#intro_todo{
+    margin-right: 95px;
+}
+
+#intro_priority{
+    margin-right: 20px;
+}
+
+input {
+  border: 1px solid #2dcb6f;
+  color: #505050;
+  padding: 5px 20px;
+  margin: 8px 0px;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  align-items: center;
+  text-align: center;
+}
+
+input:focus {
+  outline: none !important;
+  border: 1px solid #2dcb6f;
+}
+
+select {
+  border: 1px solid #2dcb6f;
+  color: #505050;
+  padding: 5px 10px;
+  margin: 0px 20px;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  align-items: center;
+  text-align: center;
+}
+
+select:focus {
+    outline: none !important;
+    border: 1px solid #2dcb6f;
+  }
+
+button {
+  margin-left: 15px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  background-color: #2dcb6f;
+  color: white;
+  border: 2px solid transparent;
+  text-align: center;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: green;
+  transition: 0.3s ease;
+}
+
+
+
+.Edit_child_div {
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Edit_intro {
+  font-size: 0.9em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#Edit_intro_edit {
+  margin-right: 95px;
+}
+
+#Edit_intro_delete {
+  margin-right: 20px;
+}
+
+.far {
+  margin: 0px 10px;
+  color: #2dcb6f;
+}
+
+.fa-trash-alt {
+  color: crimson;
+}
+
+
+
+
+hr {
+  border: 1px solid #d0d7dd;
+}
+
+.showItems {
+  /* border: 1px solid red; */
+  overflow: auto;
+  height: 330px;
+}
+
+.eachItem {
+  position: relative;
+  margin: 10px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 40px;
+  box-shadow: 0px 0px 2px 0 #cccccc;
+  border-radius: 2px;
+  background-color: #F5F5F5;
+ 
+}
+
+img{
+  height: 15px;
+  margin-right: 40px;
+  margin-top: 5px;
+}
+
+h5 {
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0px;
+  color: 	#181818;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+small {
+  background-color: rgb(61, 164, 208);
+  border-radius: 10px;
+  color: #fff;
+  margin: 0px;
+  margin-left: 20px;
+  padding: 1px 10px;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.icons{
+  position: absolute;
+  right: 10px;
+}
+
+.fa-edit, .fa-trash-alt{
+  cursor: pointer;
+}
+
+#search_input{
+  margin: 15px 20px;
+}

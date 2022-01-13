@@ -1,0 +1,79 @@
+.Edit_main {
+  /* border: 1px solid red; */
+  background-color: #fff;
+  width: 40%;
+  margin-left: 420px;
+  margin-top: -8px;
+  box-shadow: 1px 1px 0px 0 #cccccc;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 3px;
+  height: 585px;
+}
+
+.Edit_child_div {
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Edit_intro {
+  font-size: 0.9em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#Edit_intro_edit {
+  margin-right: 95px;
+}
+
+#Edit_intro_delete {
+  margin-right: 20px;
+}
+
+.far {
+  margin: 0px 10px;
+  color: #2dcb6f;
+}
+
+.fa-trash-alt {
+  color: crimson;
+}
+
+.show_Edit_Items {
+  /* border: 1px solid red; */
+  overflow: auto;
+  height: 440px;
+}
+
+.each_Edit_Item {
+   
+    position: relative;
+  margin: 10px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 40px;
+  box-shadow: 0px 0px 2px 0 #cccccc;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+}
+
+.icons{
+    position: absolute;
+    right: 10px;
+}
+
+.fa-edit, .fa-trash-alt{
+    cursor: pointer;
+}
+
+.removeall{
+    background-color: red;
+    margin: 15px 20px;
+    float: right;
+}
+
+.removeall:hover{
+    background-color: darkred;
+}
