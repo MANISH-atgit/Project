@@ -1,5 +1,9 @@
+import Todos from "../components/pages/Todos";
+import { getLocalData } from "../components/pages/Todos";
+
 const initialData = {
-  list: [],
+  list: JSON.parse(localStorage.getItem("mytodolist"))??[], 
+  text:''
 };
 
 const todoReducers = (state = initialData, action) => {
@@ -7,8 +11,7 @@ const todoReducers = (state = initialData, action) => {
     case "ADD_TODO":
       
       const { id, data } = action.payload;
-    
-      const storage = localStorage.setItem("mytodolist", JSON.stringify(action.payload));
+
       return {
         ...state,
         list: [
@@ -34,31 +37,6 @@ const todoReducers = (state = initialData, action) => {
             ...state,
             list: []
         };
-
-    case "SEARCH":
-
-      const filteredList = state.list.filter((elem) => {
-        if (action.search === "") {
-          return elem;
-        } else if (elem.name.includes(action.search)) {
-          return elem;
-        }})
-        return {
-           list: filteredList
-
-        }
-
-    // case "SORT":
-    //   const sortArray = type => {
-    //     const types = {
-    //       id: 'id',
-    //     };
-    //     const sortProperty = types[type]
-    //     const sorted = [...list].sort((a, b) => b[sortProperty] - a[sortProperty]);
-    //     return {
-    //       list: sorted
-    //     }
-    //   }
 
     default:
       return state;

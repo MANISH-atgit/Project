@@ -6,6 +6,7 @@ import { addTodo, deleteTodo, removeTodo, search } from "../../actions/index";
 import icon from "./icon.png";
 import todoReducers from "../../reducers/todoReducers";
 
+
 const Todos = () => {
   const [inputData, setInputData] = useState("");
   const [priorityData, setPriorityData] = useState("");
@@ -16,12 +17,10 @@ const Todos = () => {
   const list = useSelector((state) => state.todoReducers.list);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     localStorage.setItem("mytodolist", JSON.stringify(list));
   }, [list]);
-    
-  
+
   return (
     <>
       <div className="Todos_main">
@@ -54,7 +53,7 @@ const Todos = () => {
             className="Todos_add_button"
             onClick={() =>
               dispatch(
-                addTodo(inputData, priorityData, list),
+                addTodo(inputData, priorityData),
                 setInputData(""),
                 setPriorityData("")
               )
@@ -65,9 +64,6 @@ const Todos = () => {
         </div>
         <div className="Edit_child_div">
           <div className="Edit_intro">
-            <span id="Edit_intro_edit">
-              Click <i class="far fa-edit"></i> To Edit
-            </span>
             <span id="Edit_intro_delete">
               Click <i class="far fa-trash-alt"></i> To Delete
             </span>
@@ -77,25 +73,34 @@ const Todos = () => {
         <hr />
 
         <div className="showItems">
-          {list.map((elem) => {
-            return (
-              <div className="eachItem" key={elem.id}>
-                <img src={icon} alt="todo" />
-                <h5>
-                  {elem.data.name}
-                  <small>{elem.data.priority}</small>
-                </h5>
-                <div className="icons">
-                  <i class="far fa-edit" title="edit todo"></i>
-                  <i
-                    class="far fa-trash-alt"
-                    title="delete todo"
-                    onClick={() => dispatch(deleteTodo(elem.id))}
-                  ></i>
+          {list
+            .filter((elem) => {
+              // console.log(elem)
+              if (searchTerm == "") {
+                return elem;
+              } else if (elem.data.name === searchTerm) {
+               
+                return elem;
+              }
+            })
+            .map((elem) => {
+              return (
+                <div className="eachItem" key={elem.id}>
+                  <img src={icon} alt="todo" />
+                  <h5>
+                    {elem.data.name}
+                    <small>{elem.data.priority}</small>
+                  </h5>
+                  <div className="icons">
+                    <i
+                      class="far fa-trash-alt"
+                      title="delete todo"
+                      onClick={() => dispatch(deleteTodo(elem.id))}
+                    ></i>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
 
           <br />
         </div>
@@ -107,19 +112,13 @@ const Todos = () => {
           onChange={(event) => setSearchTerm(event.target.value)}
         />
 
-        <button
-          className="Search_btn"
-          onClick={() => dispatch(search(searchTerm))}
-        >
-          SEARCH
-        </button>
-
         
 
         <button className="removeall" onClick={() => dispatch(removeTodo())}>
           Clear List
         </button>
       </div>
+
     </>
   );
 };

@@ -12,7 +12,6 @@ return (
 	<Routes>
 		<Route path='/' element={<Home />} />
 		<Route path='/todos' element={<Todos />} />
-		<Route path='/edit' element={<Edit />} />
 	</Routes>
 	</Router>
 );

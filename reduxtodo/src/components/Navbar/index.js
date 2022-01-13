@@ -20,9 +20,6 @@ const Navbar = () => {
             <NavLink to="/todos" activeStyle>
               Todos
             </NavLink>
-            <NavLink to="/edit" activeStyle>
-              Edit
-            </NavLink>
           </NavMenu>
           
         </Nav>

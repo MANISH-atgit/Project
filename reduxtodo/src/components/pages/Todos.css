@@ -178,3 +178,8 @@ small {
 #search_input{
   margin: 15px 20px;
 }
+
+.removeall{
+  background-color: red;
+  margin-left: 250px;
+}

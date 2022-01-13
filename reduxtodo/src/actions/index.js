@@ -1,4 +1,4 @@
-export const addTodo = (name, priority, list) => {
+export const addTodo = (name, priority) => {
     return {
         type: "ADD_TODO",
         payload: {
@@ -24,17 +24,6 @@ export const removeTodo = () => {
     }
 }
 
-export const search = (search) => {
-    return {
-        type: "SEARCH",
-        search
-    }
-}
 
-// export const sort = (list) => {
-//     return {
-//         type: "SORT",
-//         list
-        
-//     }
-// }
+
+
